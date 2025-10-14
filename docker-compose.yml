@@ -1,0 +1,21 @@
+services:
+  Domweb:
+    image: gigliomaniac1/homework02:latest
+    container_name: Domweb
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - /home/appserver
+
+version: "3.8"
+services:
+  Research-and-Development-01:
+    image: gigliomaniac1/Research-and-Development-01:latest
+    build: .
+    container_name: Research-and-Development-01
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/
+    command: ["node", "app.js"]
